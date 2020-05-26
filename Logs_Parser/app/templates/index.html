@@ -1,0 +1,138 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Some automated tool</title>
+</head>
+<style>
+		#logs {
+		  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 75%;
+		}
+
+		#logs td, #logs th {
+		  border: 1px solid #ddd;
+		  padding: 8px;
+		}
+
+		#logs td {
+		  background-color: white;
+		}
+		
+		#logs th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #4CAF50;
+		  color: white;
+		}
+
+		#next {
+		  position: relative;
+		  size: relative;
+		}
+
+</style>
+<body style="background-color:black;">
+<center><h3 style="color:white">Voilations Decoder:</h3></center>
+<form action="index" method="post" id="myForm">
+    <center>
+        <div class="form-group shadow-textarea">
+            {% if message.log_string %}
+            <textarea class="form-control z-depth-1" name="text" rows="20" cols="20">{{ message.log_string }}</textarea>
+            {% else %}
+            <textarea class="form-control z-depth-1" name="text" rows="20" cols="20"
+                      placeholder="Paste the logs here"></textarea>
+            {% endif %}
+        </div>
+    </center>
+    <br><br><br>
+    <center>
+        <h6 style="color:white">Target :</h6>
+        <select name="target" id="target">
+            {% if message.target_name == 'unknown'%}
+            <option selected value="unknown">Unknown</option>
+            {% else %}
+            <option value="unknown">Unknown</option>
+            {% endif %}
+        </select>
+        <center>
+            <br><br>
+            <center><input id="next" style="background-color:white" class="btn btn-outline-dark" type="submit"
+                           value="Decode"></center>
+</form>
+<br><br><br><br>
+<center>
+    <table id="logs" border=4 width=1000>
+        {% if message.no_voil == "No violations" %}
+        <div><h4 style="color:white"> No Voilations </h4></div>
+        {% endif %}
+        {% if message.results:%}
+        <div><h3 style="color:white"> Decoded logs: </h3></div>
+        <thead style="background-color:blue;">
+        <tr>
+            <th>Properties</th>
+            <th>Values</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        {% for key, value in message.results.iteritems() %}
+        <tr>
+            <td> {{ key }}</td>
+            <td> {{ value[0] }}</td>
+            <td> {{ value[1] }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</center>
+<br><br><br>
+<center>
+    <table id="logs" border=4 width=1000>
+        {% if message1:%}
+        <div><h4 style="color:white"> Flags information: </h4></div>
+        <thead style="background-color:blue;">
+        <tr>
+            <th>Flags</th>
+            <th>Value</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        {% for key, value in message1.iteritems() %}
+        <tr>
+            <td> {{ key }}</td>
+            <td> {{ value[0] }}</td>
+            <td> {{ value[1] }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</center>
+<br><br><br><br>
+<script>
+      		var scrolled=0;
+			$(document).ready(function()
+			{
+    			$("#next").on("click" ,function(){
+            	scrolled=scrolled+300;
+        
+				$("#customers").animate({
+				    	scrollTop:  scrolled
+				   });
+			});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<p style="color:white;">Designed and Maintained by: Rishabh Sharma</p>
+</body>
+</html>

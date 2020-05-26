@@ -1,0 +1,33 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Some Automated tool</title>
+</head>
+
+<body style="background-color:white;">
+<center><h3 style="color:black">Logs Decoder:</h3></center>
+<br><br><br><br>
+<center>
+    <table border=4 width=1000>
+        {% if results == "No violations" %}
+        <div> No Voilations</div>
+        {% else %}
+        <thead style="background-color:blue;">
+        <tr>
+            <th>Properties</th>
+            <th>Values</th>
+        </tr>
+        </thead>
+        {% for key, value in results.iteritems() %}
+        <tr>
+            <th> {{ key }}</th>
+            <td> {{ value }}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</center>
+</body>
+</html>

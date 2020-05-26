@@ -1,0 +1,23 @@
+body {
+	background-color:#bdc3c7;
+}
+
+th, td {
+	font-weight: bold !important;
+}
+
+.shadow-textarea {
+	width: 80%;
+	height: 55%;
+}
+
+.shadow-textarea textarea.form-control::placeholder {
+    font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+    padding-left: 0.8rem;
+}
+
+.table {
+	width: 95% !important;
+}

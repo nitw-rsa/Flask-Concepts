@@ -1,0 +1,15 @@
+Run flask server in development mode-
+	set FLASK_ENV=development
+	flask run
+
+Flask uses Jinja template engine to render html.
+
+Always use redirect url_for instead of directly rendring template.
+
+Message flashing- use flash to send message from route to templates and featch in templates using get_flashed_messages().
+
+@app.route('<string:code>')- This is a generic route.
+
+WSGI- Protocol for python applications in order to serve websites. It contains Frameworks(Flask, Django etc) and Servers(Gunicorn).
+
+Blueprints are useful to register app.

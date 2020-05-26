@@ -1,0 +1,26 @@
+Steps to download and setup Flask in Linux systems:-
+	1.) Install python-3
+	2.) sudo apt install python3-venv
+	3.) mkdir my_flask_app
+	4.) cd my_flask_app
+	5.) python3 -m venv venv
+	6.) source venv/bin/activate
+	7.) pip install Flask
+	8.) python -m flask --version
+
+export FLASK_APP=hello
+flask run --host=0.0.0.0
+
+Steps to download and setup Flask in Windows systems:-
+	1.)	Install Python
+	2.) Install Pip
+	2.) Install virtualenv- pip install virtualenv
+	3.) Install virtualenvwrapper- pip install virtualenvwrapper-win
+
+Steps to setup Flask project in Windows systems:-
+	1.) Make a virtual environment- mkvirtualenv flask_tutorial
+	2.) Connect our project to virtual env- First create a directory with the same name as our virtual and cd to that directory
+	3.) Set project dir- setprojectdir .
+	4.) Deactivate
+	5.) Workon
+	6.) pip install flask in that project directory
